@@ -1,0 +1,212 @@
+#map-canvas {
+  padding: 0;
+  position : absolute;
+  top : 32px;
+  right : 0px;
+  bottom : 58px;
+  left : 0px;
+  height: 96%;
+}
+
+#login {
+  background-color: #ffffff;
+  position: absolute;
+  bottom: 10%;
+  height: 60px;
+  width: 80%;
+  left: 10%;
+  color: #1a78c6;
+  text-shadow: none;
+}
+
+header {
+  z-index: 4;
+  height: 4%;
+}
+
+#car {
+  margin-left: 10px;
+  color: yellow;
+  height: 20px;
+  vertical-align: -2px;
+}
+
+.round {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 8em;
+  height: 8em;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 2px #196b8c;
+  text-shadow: 0 1px 0 #444;
+}
+
+.round img {
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+#landing-screen {
+  text-align: center;
+  background-color: #268ef7;
+}
+
+#logo {
+  right: 0%;
+  position: absolute;
+  top: 15%;
+}
+
+a {
+  text-decoration: none;
+}
+
+#pac-input{
+  height: 2.5em;
+  position: absolute;
+  bottom: 2%;
+  z-index: 2;
+  width: 52%;
+  left: 3%;
+  background-color: white;
+  border: 3px solid #268ef7;
+  text-shadow: none;
+  color: black;
+}
+
+#create-space {
+  position: absolute;
+  bottom: 1%;
+  z-index: 100;
+  right: 3%;
+  width: 4.5em;
+  border-radius: 50%;
+  height: 4.5em;
+  border: solid;
+  box-shadow: 0 0 10px rgba(0,0,0,.6);
+}
+
+#center {
+  position: absolute;
+  bottom: 15%;
+  z-index: 100;
+  right: 3%;
+  width: 3.5em;
+  border-radius: 50%;
+  height: 3.5em;
+  border: solid;
+}
+
+#search {
+  position: absolute;
+  bottom: 1%;
+  z-index: 100;
+  right: 28%;
+  width: 3.5em;
+  border-radius: 50%;
+  height: 3.5em;
+  border: solid white;
+  color: black;
+}
+
+#post-space{
+  position: relative;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+#note{
+  text-shadow: none;
+  background-color: white;
+  color: black;
+}
+
+#closest-space{
+  position:fixed;
+  top:9%;
+  left:11%;
+  width: 85%;
+}
+
+#search-radius{
+  position:fixed;
+  top:9%;
+  left:11%;
+  width: 85%;
+}
+
+#claim-space-confirmation{
+  position:fixed;
+  top:8%;
+  left: 38%;
+}
+
+#post-space-confirmation{
+  position:fixed;
+  top:9%;
+  left: 38%;
+}
+
+#cancel-space-confirmation{
+  position:fixed;
+  top:8%;
+  left: 38%;
+}
+
+#remove-space-confirmation{
+  position:fixed;
+  top:9%;
+  left: 38%;
+}
+
+#banner-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  padding: 10px;
+}
+
+#profile{
+  background: none;
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+  height: 40px;
+}
+
+#menu {
+  height: 100%;
+}
+
+#mglass {
+  height: 60%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+#compass {
+  height: 65%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+#marker {
+  height: 70%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
