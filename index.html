@@ -3,18 +3,17 @@
 <head>
     <meta charset='utf-8' />
     <title>Photopop</title>
-    <!-- <meta name="viewport" content="width-device-width, initial-scale-1" /> -->
+    <meta name="viewport" content="width-device-width, initial-scale-1" />
 
     <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
     <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
     <link rel="stylesheet" href="css/blue.min.css" />
     <link rel="stylesheet" href="css/photopop.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link href='http://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->
 
     <script src="cordova.js"></script>
-    <!-- <script src"imagepicker.js"></script> -->
     <script src="js/fontawesome-markers.min.js"></script>
     <script src="js/jquery-2.1.4.min.js"></script>
     <script charset="utf-8" src="js/ajax.js"></script>
@@ -33,7 +32,9 @@
   <div id="doodle" data-role="page" data-theme="a">
 
     <div data-role="header" data-theme="a">
+      <button id="clear">Clear</button>
       <h2 id="banner-text">Photopop!</h2>
+      <button id="share">Share</button>
     </div>
 
     <div id="content">
@@ -56,7 +57,7 @@
       </div>
       <div class="palette-box">
         <div class="palette black"></div>
-      </div>    
+      </div>
       <div style="clear:both"></div>
     </div>
     </div>

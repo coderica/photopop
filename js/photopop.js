@@ -1,28 +1,19 @@
 ///////////////////////////// RUNNER
-$(document).on("pagecreate", "#photo", function(e, data){
+$(document).on("pagecreate", "#photo", function(e, data) {
 	// footerToggle(false); // prevent footer toggle
-	$('#camera').on('click', function(){ getCamera(); }); //go to native camera
-	$('#album').on('click', function(){ getAlbum(); }); //go to native photo album
+	$('#camera').on('click', function(){ getCamera() }); //go to native camera
+	$('#album').on('click', function(){ getAlbum() }); //go to native photo album
 	// $('#camera').on('click', function(){ goToPage("#doodle") });
 });
 
-$(document).on("pagecreate", "#doodle", function(e, data){
-	// newCanvas();
-	// $(".palette").on("click", updatePalette);
-															// setup a new canvas for drawing wait for device init
-															setTimeout(function() {
-															 newCanvas();
-															}, 1000);
-															// reset palette selection (css) and select the clicked color for canvas strokeStyle
-															$(".palette").click(function() {
-																$(".palette").css("border-color", "#777");
-																$(".palette").css("border-style", "solid");
-																$(this).css("border-color", "#fff");
-																$(this).css("border-style", "dashed");
-																color = $(this).css("background-color");
-																ctx.beginPath();
-																ctx.strokeStyle = color;
-															});
+$(document).on("pagecreate", "#doodle", function(e, data) {
+												// setup a new canvas for drawing wait for device init
+												setTimeout(function() {
+												 newCanvas();
+												}, 1000);
+	$(".palette").on("click", function(){ updatePalette() });
+	$("#clear").on("click", function(){ newCanvas() });
+	$("#share").on("click", function(){ share() });
 });
 
 ///////////////////////////// FUNCTIONS
@@ -49,22 +40,22 @@ function updatePalette() {
 	$(this).css("border-color", "#fff");
 	$(this).css("border-style", "dashed");
 	color = $(this).css("background-color");
-	context.beginPath();
-	context.strokeStyle = color;
+	ctx.beginPath();
+	ctx.strokeStyle = color;
 };
-function newCanvas(){
+function newCanvas() {
 	sizeCanvas();
 	setupCanvas();
 	// $("#canvas").drawTouch();
 };
-function sizeCanvas(){
+function sizeCanvas() {
   var height = $(window).height()-90
   var width = $(window).width()
 	$("#content").height(height);
 	$("#canvas").height(height);
 	$("#canvas").width(width);
 };
-function setupCanvas(){
+function setupCanvas() {
 	context = document.getElementById('canvas').getContext("2d");
 	context.strokeStyle = color;
 	context.lineWidth = 5;
@@ -161,6 +152,11 @@ function setupCanvas(){
 // function footerToggle(booli) {
 // 	$("[data-role=footer]").fixedtoolbar({ tapToggle: booli });
 // };
+function share() {
+	var text = "Check out this awesome thing I did!"
+	var title = "PhotoPop"
+	navigator.share(text, title, "image/jpeg")
+}
 
 
 

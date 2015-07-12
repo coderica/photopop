@@ -26,6 +26,7 @@
 
     <gap:plugin name="org.apache.cordova.camera" />
     <gap:plugin name="com.synconset.imagepicker" />
+    <gap:plugin name="nl.madebymark.share" version="0.1.1" />
 
     <preference name="permissions" value="none"/>
     <!-- <preference name="phonegap-version" value="2.3.0" /> -->
