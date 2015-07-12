@@ -3,56 +3,69 @@
 <head>
     <meta charset='utf-8' />
     <title>Photopop</title>
-    <meta name="viewport" content="width-device-width, initial-scale-1" />
+    <!-- <meta name="viewport" content="width-device-width, initial-scale-1" /> -->
 
     <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
     <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
     <link rel="stylesheet" href="css/blue.min.css" />
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/photopop.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 
+    <script src="cordova.js"></script>
+    <!-- <script src"imagepicker.js"></script> -->
     <script src="js/fontawesome-markers.min.js"></script>
     <script src="js/jquery-2.1.4.min.js"></script>
     <script charset="utf-8" src="js/ajax.js"></script>
     <script src="js/jquery.mobile.config.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script charset="utf-8" src="js/photopop.js"></script>
 </head>
+
 <body onload="onLoad()">
 
   <div id="choose-photo" data-role="page" data-theme="a">
-    Choose a photo...
+    <button id="camera">Camera</button>
+    <button id="album">Album</button>
   </div>
 
-  <div id="page-map" data-role="page" data-url="map-page" data-theme="a">
+  <div id="doodle" data-role="page" data-theme="a">
 
-    <!-- <div data-role="popup" id="example-popup">
-      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-    </div> -->
-
-    <header data-role="header">
-      <button id="profile"><img id="menu" src="http://coderica.github.io/images/menu.png"/></button>
+    <div data-role="header" data-theme="a">
       <h2 id="banner-text">Photopop!</h2>
-    </header>
-
-    <button id="center"><img id="compass" src="http://coderica.github.io/images/center.png"/></button>
-
-    <div id="content" data-role="content">
-      <div id="map-canvas"></div>
-      <button id="carma-false">Please adjust your CARma</button>
     </div>
 
-    <!-- <div id="user" data-role="panel" data-position="left" data-display="overlay">
-      <a href="#" data-rel="close" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-    </div> -->
-
-    <div data-role="footer" data-position="fixed" data-theme="a">
-      <a href="#" data-rel="back">OK</a>
-      <!-- ??? ^^^ -->
+    <div id="content"><p style="text-align:center">Loading Canvas...</p></div>
+    
+    <div data-theme="a" data-role="footer" data-position="fixed">
+    <div class="palette-case">
+      <div class="palette-box">
+        <div class="palette white"></div>
+      </div>  
+      <div class="palette-box">
+        <div class="palette red"></div>
+      </div>
+      <div class="palette-box">
+        <div class="palette blue"></div>
+      </div>
+      <div class="palette-box">
+        <div class="palette green"></div>
+      </div>
+      <div class="palette-box">
+        <div class="palette black"></div>
+      </div>    
+      <div style="clear:both"></div>
     </div>
-  </div>
+    </div>
+  </div> 
+  
+  <!-- <div data-role="popup" id="example-popup">
+    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+  </div> -->
+
+  <!-- <div id="example-panel" data-role="panel" data-position="left" data-display="overlay">
+    <a href="#" data-rel="close" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+  </div> -->
 </body>
 </html>
