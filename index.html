@@ -25,9 +25,9 @@
 
 <body onload="onLoad()">
 
-  <div id="choose-photo" data-role="page" data-theme="a">
-    <button id="camera">Camera</button>
-    <button id="album">Album</button>
+  <div id="photo" data-role="page" data-theme="a">
+    <button id="camera">Take a new photo</button>
+    <button id="album">Choose from gallery</button>
   </div>
 
   <div id="doodle" data-role="page" data-theme="a">
@@ -36,7 +36,9 @@
       <h2 id="banner-text">Photopop!</h2>
     </div>
 
-    <div id="content"><p style="text-align:center">Loading Canvas...</p></div>
+    <div id="content">
+      <canvas id="canvas"></canvas>
+    </div>
     
     <div data-theme="a" data-role="footer" data-position="fixed">
     <div class="palette-case">
