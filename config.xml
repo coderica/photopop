@@ -27,9 +27,13 @@
     <gap:plugin name="org.apache.cordova.camera" />
     <gap:plugin name="com.synconset.imagepicker" />
 
-    <!-- <access origin="*"/> -->
     <preference name="permissions" value="none"/>
-    <!-- <feature name="http://api.phonegap.com/1.0/geolocation"/> -->
-    <!-- ^^add in requirements -->
+    <!-- <preference name="phonegap-version" value="2.3.0" /> -->
+
+    <feature name="http://api.phonegap.com/1.0/camera"/>
+    <feature name="http://api.phonegap.com/1.0/file"/>
+    <feature name="http://api.phonegap.com/1.0/device" />
+    <feature name="http://api.phonegap.com/1.0/media"/>
+    <feature name="http://api.phonegap.com/1.0/network"/>
 
 </widget>
