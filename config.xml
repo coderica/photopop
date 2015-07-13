@@ -17,16 +17,12 @@
         Erica Prenga
     </author>
 
-    <!--
-      If you do not want any permissions to be added to your app, add the
-      following tag to your config.xml; you will still have the INTERNET
-      permission on your app, which PhoneGap requires.
-    -->
     <!-- <icon src="icon.png" /> -->
 
     <gap:plugin name="org.apache.cordova.camera" />
     <gap:plugin name="com.synconset.imagepicker" />
-    <gap:plugin name="nl.madebymark.share" version="0.1.1" />
+    <!-- <gap:plugin name="nl.madebymark.share" version="0.1.1" /> -->
+    <gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />
 
     <preference name="permissions" value="none"/>
     <!-- <preference name="phonegap-version" value="2.3.0" /> -->
