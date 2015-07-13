@@ -1,8 +1,8 @@
 ///////////////////////////// RUNNER
 $(document).on("pagecreate", "#photo", function() {
-	// $('#camera').on('click', getCamera); //go to native camera
 	$('#album').on('click', getAlbum); //go to native photo album
-	$('#camera').on('click', function(){ goToPage("#doodle") });
+	$('#camera').on('click', getCamera); //go to native camera
+	// $('#camera').on('click', function(){ goToPage("#doodle") });
 });
 
 $(document).on("pagecreate", "#doodle", function() {
@@ -54,6 +54,7 @@ function getAlbum() {
 
 function onSuccess(imageData) {
 	imgSrc = imageData;
+	alert(imageData);
 	goToPage("#doodle");
 };
 function onFail(message) {
@@ -90,9 +91,10 @@ function setupCanvas() {
 function setImageBackground(){
 	var img = new Image();
 	img.onload = function() {
-		context.drawImage(img, 0, 0);
+		context.drawImage(img, 0, 0, $(window).width(), $(window).height());
 	};
-	img.src = "http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg";
+	// img.src = "http://d.ibtimes.co.uk/en/full/1405855/national-geographic-2014-photo-contest.jpg"
+	img.src = imgSrc;
 };
 // prototype to	start drawing on touch using canvas moveTo and lineTo
 // how can I refactor this???
