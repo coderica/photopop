@@ -1,6 +1,5 @@
 ///////////////////////////// RUNNER
 $(document).on("pagecreate", "#photo", function() {
-	// footerToggle(false); // prevent footer toggle
 	// $('#camera').on('click', getCamera); //go to native camera
 	$('#album').on('click', getAlbum); //go to native photo album
 	$('#camera').on('click', function(){ goToPage("#doodle") });
@@ -10,8 +9,11 @@ $(document).on("pagecreate", "#doodle", function() {
 	newCanvas();
 	$(".palette").on("click", updatePalette);
 	$("#clear").on("click", newCanvas);
-	$("#share").on("click", share);
+	$("#share").on("click", function(){ share(imgSrc) });
+	$('#restart').on("click", function(){ goToPage("#photo") })
+	$("#color").colorPicker();
 });
+
 
 ///////////////////////////// FUNCTIONS
 function getCamera() {
@@ -20,6 +22,36 @@ function getCamera() {
 function getAlbum() {
 	window.imagePicker.getPictures(onSuccess, onFail, albumOptions);
 };
+
+// document.addEventListener("deviceready", function () {
+
+//     var options = {
+//       quality: 50,
+//       destinationType: Camera.DestinationType.DATA_URL,
+//       sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+//       allowEdit: true,
+//       encodingType: Camera.EncodingType.JPEG,
+//       targetWidth: 100,
+//       targetHeight: 100,
+//       popoverOptions: CameraPopoverOptions,
+//       saveToPhotoAlbum: false
+//     };
+
+//     $cordovaCamera.getPicture(options).then(function(imageData) {
+//       // var image = document.getElementById('myImage');
+//     	var image = new Image();
+//       image.src = "data:image/jpeg;base64," + imageData;
+//     	// img.source = "http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg";
+//       alert(image.src)
+//     	// img.onload = function() {
+//     	// 	context.drawImage(img, 69, 50);
+//     	// };
+//     }, function(err) {
+//       // error
+//     });
+
+//   }, false);
+
 function onSuccess(imageData) {
 	imgSrc = imageData;
 	goToPage("#doodle");
@@ -31,11 +63,7 @@ function goToPage(newPage) {
 	window.location.href = newPage;
 };
 function updatePalette() {
-	$(".palette").css("border-color", "#777");
-	$(".palette").css("border-style", "solid");
-	$(this).css("border-color", "#fff");
-	$(this).css("border-style", "dashed");
-	color = $(this).css("background-color");
+	color = $("#color").css("background-color");
 	context.beginPath();
 	context.strokeStyle = color;
 };
@@ -46,7 +74,7 @@ function newCanvas() {
 	$("#canvas").drawTouch();
 };
 function sizeCanvas() {
-	var height = $(window).height()-90;
+	var height = $(window).height();
 	var width = $(window).width();
   $("#content").height(height);
 	$("#canvas").attr({
@@ -62,15 +90,15 @@ function setupCanvas() {
 function setImageBackground(){
 	var img = new Image();
 	img.onload = function() {
-		context.drawImage(img, 69, 50);
+		context.drawImage(img, 0, 0);
 	};
-	img.source = "http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg";
+	img.src = "http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg";
 };
 // prototype to	start drawing on touch using canvas moveTo and lineTo
 // how can I refactor this???
 $.fn.drawTouch = function() {
 	var start = function(e) {
-        e = e.originalEvent;
+    e = e.originalEvent;
 		context.beginPath();
 		x = e.changedTouches[0].pageX;
 		y = e.changedTouches[0].pageY-44;
@@ -86,16 +114,11 @@ $.fn.drawTouch = function() {
 	};
 	$(this).on("touchstart", start);
 	$(this).on("touchmove", move);	
-}; 
-// function footerToggle(booli) {
-// 	$("[data-role=footer]").fixedtoolbar({ tapToggle: booli });
-// };
-function share() {
-	var text = "Check out this awesome thing I did!"
-	var title = "PhotoPop"
-	navigator.share(text, title, "image/jpeg")
+};
+function share(image) {
+	var title = "Made with PhotoPop!"
+	window.plugins.socialsharing.share(null, title, image, null)
 }
-
 
 
 ///////////////////////////// VARIABLE SETTINGS
@@ -108,7 +131,11 @@ var cameraOptions = {
   saveToPhotoAlbum: true,
 };
 var albumOptions = {
-  maximumImagesCount: 1
+  maximumImagesCount: 1,
 };
+// var colorPickerOptions = {
+// 	change: function(color){ color.toHexString() },
+// 	renderCallback: function(){ color = this.color },
+// };
 var context, color = "#000";
-var imgSrc;
+var imgSrc
