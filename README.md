@@ -12,13 +12,13 @@ A mobile app for uploading and drawing on photos in any color! Wooooo
 
 ####A user can...
 
-	*choose a photo from their gallery
-	*take a new photo
-	*draw on a photo
-	*choose any color to draw with
-	*start the drawing over
-	*go back to choose a new photo
-	*share the drawing on social media
+	* Choose a photo from their gallery
+	* Take a new photo
+	Draw on a photo
+	Choose any color to draw with
+	Start the drawing over
+	Go back to choose a new photo
+	Share the drawing on social media
 	
 ####Stretch goals
 
