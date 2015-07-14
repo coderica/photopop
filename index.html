@@ -3,14 +3,15 @@
 <head>
     <meta charset='utf-8' />
     <title>PhotoPop</title>
-    <meta name="viewport" content="width-device-width, initial-scale-1" />
 
+    <!-- stylesheets -->
     <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
     <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
     <link rel="stylesheet" href="css/images/font-awesome-4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/blue.min.css" />
+    <link rel="stylesheet" href="css/themeroller.min.css" /> 
     <link rel="stylesheet" href="css/photopop.css">
 
+    <!-- scripts -->
     <script src="cordova.js"></script>
     <script src="js/jquery-2.1.4.min.js"></script>
     <script charset="utf-8" src="js/ajax.js"></script>
@@ -19,15 +20,21 @@
     <script src="js/jqColorPicker.min.js"></script>
     <script src="js/fontawesome-markers.min.js"></script>
     <script charset="utf-8" src="js/photopop.js"></script>
+
+    <!--  viewport settings -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <meta name="viewport" content="width=device-width, height=device-height" />
+
 </head>
 
 <body onload="onLoad()">
 
   <div id="photo" data-role="page" data-theme="a">
     <div id="start">
-      <h1>PhotoPOP</h1>
+      <h1>PhotoPop</h1>
       <button id="camera"><i class="fa fa-camera fa-fw"></i></button>
       <button id="album"><i class="fa fa-picture-o fa-fw"></i></button>
+      <button id="blank"><i class="fa fa-file fa-fw"></i></button>
     </div>
   </div>
 
@@ -43,6 +50,7 @@
         <div id="clear"><i class="fa fa-trash-o fa-2x"></i></div>
         <div id="share"><i class="fa fa-paper-plane-o fa-2x"></i></div>
         <div id="color"><i class="fa fa-circle fa-2x"></i></div>
+        <div id="fill"></div>
       </div>
     </div>
     
@@ -50,12 +58,3 @@
   
 </body>
 </html>
-
-
-<!-- <div data-role="popup" id="example-popup">
-  <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-</div> -->
-
-<!-- <div id="example-panel" data-role="panel" data-position="left" data-display="overlay">
-  <a href="#" data-rel="close" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-</div> -->

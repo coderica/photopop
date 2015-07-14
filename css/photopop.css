@@ -1,29 +1,60 @@
-body {
+*{
+/* disable highlight */
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+
+/* disable popout */
+user-select: none;
+-webkit-touch-callout: none;
+-moz-touch-callout: none;
+-ms-touch-callout: none;
+touch-callout: none;
+
+/* disable drag */
+-webkit-user-drag: none;
+-moz-user-drag: none;
+-ms-user-drag: none;
+user-drag: none;
+}
+@font-face {
+  font-family: 'Fredoka One';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/Fredoka400.woff2') format('woff2');
+}
+input{
+-webkit-user-select: auto !important;
+-khtml-user-select: auto !important;
+-moz-user-select: auto !important;
+-ms-user-select: auto !important;
+user-select: auto !important;
+}
+body{
 	margin:0px;
 	width:100%;
 	height:100%;
 	overflow:hidden;
-/*  prevent text selection on ui
-      user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-    prevent scrolling in windows phone
-      -ms-touch-action: none;
-*/
+}
+h1{
+  font-family: "Fredoka One";
+  letter-spacing: 3px;
+  font-size: 2em;
+  line-height: 2em;
 }
 #start{
-	text-align: center;
-	position: absolute;
-	bottom: 5%;
-	width: 66%;
-	left: 17%;
+  text-align: center;
+  position: absolute;
+  bottom: 7%;
+  width: 70%;
+  left: 15%;
 }
-#camera{
-	font-size: 4em;
-}
-#album{
-	font-size: 4em;
+#camera, #album, #blank{
+  font-size: 2em;
+  width: 4.5em;
+  height: 3.5em;
+  margin: 10% auto;
 }
 #content{
   overflow:hidden;
@@ -45,20 +76,7 @@ body {
 	margin:auto;
 	text-align:center;
 }
-#color{
-  display: inline-block;
-  margin: 20px;
-  color: red;
-}
-#share {
-  display: inline-block;
-  margin: 20px;
-}
-#clear {
-  display: inline-block;
-  margin: 20px;
-}
-#restart {
+#share, #clear, #restart, #color{
   display: inline-block;
   margin: 20px;
 }
