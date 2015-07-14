@@ -34,7 +34,9 @@ Stretch goals
 		Resource: http://codetheory.in/html5-canvas-drawing-lines-with-smooth-edges/
 	* Improve user experience
 		Resource: http://qnimate.com/making-a-phonegap-look-like-native-app/
-	* Implement a smaller, more basic color picker
+	* Use background process to enable user to return to an unfinished drawing
+	* Create a smaller, more basic color picker
+	* Implement photo cropping and resizing option
 
 
 ##Resources
@@ -44,7 +46,7 @@ Stretch goals
 	* Phonegap Build & Plugins
 	* Tiny Color Picker: http://www.dematte.at/tinyColorPicker/?type=IE8#demo
 
+<!-- 
+	colorpicker doesn't change brush color or the icon color
 
-
-
-<!-- command line inside repo use firebase to upload app and mobiletest.me the firebase url to show online -->
+ -->
