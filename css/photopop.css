@@ -46,26 +46,19 @@ body {
 	text-align:center;
 }
 #color{
-  /*float: right;*/
   display: inline-block;
-  width: 2em;
-  border-radius: 50%;
-  height: 2em;
-  background-color: black;
   margin: 20px;
+  color: red;
 }
 #share {
-  /*float:right;*/
   display: inline-block;
   margin: 20px;
 }
 #clear {
-  /*float:right;*/
   display: inline-block;
   margin: 20px;
 }
 #restart {
-  /*float:right;*/
   display: inline-block;
   margin: 20px;
 }
