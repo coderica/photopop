@@ -1,22 +1,23 @@
 ///////////////////////////// RUNNER
 $(document).on("pagecreate", "#photo", function() {
 	$('#album').on('click', getAlbum); //go to native photo album
-	$('#camera').on('click', getCamera); //go to native camera
-	// $('#camera').on('click', function(){ window.location.href = "#doodle" });
+	// $('#camera').on('click', getCamera); //go to native camera
+	$('#camera').on('click', function(){ window.location.href = "#doodle" });
 });
 
 $(document).on("pagecreate", "#doodle", function() {
 	newCanvas();
 	$("#clear").on("click", newCanvas);
-	$("#share").on("click", function(){ share(imgSrc) });
+	$("#share").on("click", share);
 	$('#restart').on("click", restart)
 
 	// how can I refactor this?
 	$("#color").colorPicker({
 		renderCallback: function($elm, toggled) {
 	    var color = "#" + this.color.colors.HEX
-	    updatePalette(color)
-	  }
+	    updateBrushColor(color)
+	  },
+	  margin: '-7em 0 0 -1em', // this lady's shit is shitty.
 	});
 });
 
@@ -43,49 +44,19 @@ function getAlbum() {
 		{ maximumImagesCount: 1 }
 	);
 };
-// document.addEventListener("deviceready", function () {
-	
-//     var options = {
-//       quality: 50,
-//       destinationType: Camera.DestinationType.DATA_URL,
-//       sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-//       allowEdit: true,
-//       encodingType: Camera.EncodingType.JPEG,
-//       targetWidth: 100,
-//       targetHeight: 100,
-//       popoverOptions: CameraPopoverOptions,
-//       saveToPhotoAlbum: false
-//     };
-
-//     $cordovaCamera.getPicture(options).then(function(imageData) {
-//       // var image = document.getElementById('myImage');
-//     	var image = new Image();
-//       image.src = "data:image/jpeg;base64," + imageData;
-//     	// img.source = "http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg";
-//       alert(image.src)
-//     	// img.onload = function() {
-//     	// 	context.drawImage(img, 69, 50);
-//     	// };
-//     }, function(err) {
-//       // error
-//     });
-
-//   }, false);
-
 function onSuccess(imageData){
 	imgSrc = imageData;
-	alert(imageData);
 	window.location.href = "#doodle";
 };
 function onFail(message){
-	alert(message);
+	console.log("Failure:" + message);
+	restart();
 };
 function restart(){
 	window.location.hash = "#page";
 	location.reload();
 };
-function updatePalette(color){
-	console.log(color)
+function updateBrushColor(color){
 	$("#color").css("color", color);
 	context.beginPath();
 	context.strokeStyle = color;
@@ -112,8 +83,8 @@ function setupCanvas() {
 };
 function setImageBackground(){
 	var img = new Image();
-	img.src = "http://localhost:8000/css/images/bears.jpg"
-	// img.src = imgSrc;
+	// img.src = "http://localhost:8000/css/images/bears.jpg"
+	img.src = imgSrc;
 	img.onload = function() {
 		var width = $(window).width()
 		var height = width * this.height/this.width;
@@ -121,36 +92,70 @@ function setImageBackground(){
 		context.drawImage(img, 0, 0, width, height);
 	};
 };
-// prototype to	start drawing on touch using canvas moveTo and lineTo
-// how can I refactor this???
-$.fn.drawTouch = function() {
-	var start = function(e) {
-    e = e.originalEvent;
-		context.beginPath();
-		x = e.changedTouches[0].pageX;
-		y = e.changedTouches[0].pageY;
-		context.moveTo(x,y);
-	};
-	var move = function(e) {
-		e.preventDefault();
-        e = e.originalEvent;
-		x = e.changedTouches[0].pageX;
-		y = e.changedTouches[0].pageY;
-		context.lineTo(x,y);
-		context.stroke();
-	};
-	$(this).on("touchstart", start);
-	$(this).on("touchmove", move);	
-};
 function clearCanvas(){
 	// clear canvas drawing but leave photo
 };
 function saveDrawing(){
 	imgSrc = canvas.toDataURL("image/jpeg");
 	// use on "app close"? background processes?
-}
+};
 function share() {
 	saveDrawing();
-	var title = "Made with PhotoPop!"
-	window.plugins.socialsharing.share(null, title, imgSrc, null)
-}
+	var title = "Made with PhotoPop!";
+	window.plugins.socialsharing.share(null, title, imgSrc, null);
+	restart();
+};
+
+
+
+
+
+					// prototype to	start drawing on touch using canvas moveTo and lineTo
+					// how can I refactor this???
+					$.fn.drawTouch = function() {
+						var start = function(e) {
+					    e = e.originalEvent;
+							context.beginPath();
+							x = e.changedTouches[0].pageX;
+							y = e.changedTouches[0].pageY;
+							context.moveTo(x,y);
+						};
+						var move = function(e) {
+							e.preventDefault();
+					        e = e.originalEvent;
+							x = e.changedTouches[0].pageX;
+							y = e.changedTouches[0].pageY;
+							context.lineTo(x,y);
+							context.stroke();
+						};
+						$(this).on("touchstart", start);
+						$(this).on("touchmove", move);	
+					};
+					// document.addEventListener("deviceready", function () {
+						
+					//     var options = {
+					//       quality: 50,
+					//       destinationType: Camera.DestinationType.DATA_URL,
+					//       sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+					//       allowEdit: true,
+					//       encodingType: Camera.EncodingType.JPEG,
+					//       targetWidth: 100,
+					//       targetHeight: 100,
+					//       popoverOptions: CameraPopoverOptions,
+					//       saveToPhotoAlbum: false
+					//     };
+
+					//     $cordovaCamera.getPicture(options).then(function(imageData) {
+					//       // var image = document.getElementById('myImage');
+					//     	var image = new Image();
+					//       image.src = "data:image/jpeg;base64," + imageData;
+					//     	// img.source = "http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg";
+					//       alert(image.src)
+					//     	// img.onload = function() {
+					//     	// 	context.drawImage(img, 69, 50);
+					//     	// };
+					//     }, function(err) {
+					//       // error
+					//     });
+
+					//   }, false);
