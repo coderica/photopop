@@ -25,6 +25,7 @@
     <gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />
 
     <preference name="permissions" value="none"/>
+    <preference name="DisallowOverscroll" value="true" />
     <!-- <preference name="phonegap-version" value="2.3.0" /> -->
 
     <feature name="http://api.phonegap.com/1.0/camera"/>
